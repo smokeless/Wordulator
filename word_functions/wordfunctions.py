@@ -1,6 +1,7 @@
 '''
-These functions get statistics on strings.
+Just your everyday functions. Maybe extend out strings.
 '''
+import random
 def sanitize(string:str, keepSpaces=True )->str:
     '''
     Cleans a string down to letters.
@@ -27,7 +28,7 @@ def sanitize(string:str, keepSpaces=True )->str:
         return sanitizedString
 
 
-def letterCount(string:str)->int:
+def letter_count(string:str)->int:
     '''
     Send in a string, get only letters back.
     :param string: Any string.
@@ -36,19 +37,59 @@ def letterCount(string:str)->int:
     count = sanitize(string, False)
     return len(count)
 
-def vowelCount(string:str)->dict:
+def total_vowel_count(string:str)->int:
     '''
     Run in a string, this will count up vowels.
     :param string: Some string.
-    :return: A dictionary with vowel count.
+    :return: a count of vowels
     '''
-    vowels = {'a':0, 'e':0, 'i':0, 'o':0, 'u':0, 'y':0}
+    vowels = ['a', 'e', 'i', 'o', 'u', 'y']
     s = string.lower()
+    count = 0
     for i in s:
         if i in vowels:
-            vowels[i] += 1
-    return vowels
+            count += 1
+    return count
 
-x = 'my strIng is... really long&&.    x'
+def to_number_leet(string:str)->str:
+    '''
+    Converts a string to number leet speak.
+    :param string: string to convert.
+    :return: converted string
+    '''
+    leetDict = {'o':'0', 'l':'1', 'z':'2', 'e':'3', 'a':'4',
+                's':'5', 'g':'6', 't':'7', 'b':'8', 'p':'9'}
+    leetString = ''
+    for c in string:
+        lower = c.lower()
+        if lower in leetDict:
+            leetString += leetDict[lower]
+        else:
+            leetString += c
+    return leetString
+
+def random_case(string)->str:
+    '''
+    randomize string case
+    :param string: string in.
+    :return: randomized case
+    '''
+    finishedString = ''
+    for i in string:
+        ranInt = random.randint(0,2)
+        if i.isalpha:
+            if ranInt == 0:
+                finishedString += i
+            elif ranInt == 1:
+                finishedString += i.lower()
+            else:
+                finishedString += i.upper()
+        else:
+            finishedString += i
+    return finishedString
+
+
+x = 'my string is... really long&&.    x'
 x = sanitize(x)
-print('x is:', vowelCount(x))
+x = random_case(x)
+print('x is:',x)
