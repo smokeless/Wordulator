@@ -92,4 +92,5 @@ def random_case(string)->str:
 x = 'my string is... really long&&.    x'
 x = sanitize(x)
 x = random_case(x)
+x = to_number_leet(x)
 print('x is:',x)
