@@ -88,9 +88,27 @@ def random_case(string)->str:
             finishedString += i
     return finishedString
 
+def reverse_string(string:str)->str:
+    '''
+    Reverses a string.
+    :param string: string to be reversed.
+    :return: reversed string.
+    '''
+    return string[::-1]
+
+def remove_vowels(string:str)->str:
+    vowels = ['a', 'i', 'e', 'o', 'u', 'y']
+    removed = ''
+    for i in string:
+        if i.lower() not in vowels:
+            removed += i
+    return removed
+
 
 x = 'my string is... really long&&.    x'
 x = sanitize(x)
 x = random_case(x)
 x = to_number_leet(x)
+x = reverse_string(x)
+x = remove_vowels(x)
 print('x is:',x)
