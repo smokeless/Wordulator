@@ -2,8 +2,7 @@
 Just your everyday functions. Maybe extend out strings.
 '''
 import random
-import emoji
-
+from word_functions import emojorz
 
 def sanitize(string:str, keepSpaces=True )->str:
     '''
@@ -247,6 +246,16 @@ def to_emoji(string:str)->str:
     :param string: string to convert.
     :return: converted string.
     '''
+    workingText = string.split()
+    finalText   = []
+    for i in workingText:
+        if workingText in emojorz.EMOJI_UNICODE:
+            finalText.append(emojorz.EMOJI_UNICODE[i])
+        else:
+            finalText.append(i)
+
+    finalText = ' '.join(finalText)
+    return finalText
 
 
 def FUNCTION_TESTS(string:str):
