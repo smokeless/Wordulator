@@ -2,6 +2,8 @@
 Just your everyday functions. Maybe extend out strings.
 '''
 import random
+import emoji
+
 
 def sanitize(string:str, keepSpaces=True )->str:
     '''
@@ -240,7 +242,11 @@ def to_morse_code(string:str)->str:
     return converted
 
 def to_emoji(string:str)->str:
-    pass
+    '''
+    Using emoji module.
+    :param string: string to convert.
+    :return: converted string.
+    '''
 
 
 def FUNCTION_TESTS(string:str):
