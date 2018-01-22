@@ -5,6 +5,7 @@ I intend to use it as a personal library, and maybe tack on a gui front-end
 for getting information on stuff.
 
 Current functions:
+*Bullet list
 sanitize: clean a string up to words with spaces, or without.
 letter_count: how many letters in a string.
 special_char_count: how many special chars in a string.
