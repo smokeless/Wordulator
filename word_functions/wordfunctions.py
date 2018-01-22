@@ -168,12 +168,72 @@ def least_common_vowel(string:str)->tuple:
         if v < count and v != 0:
             count  = v
             char = k
+
     if not char: #todo decide how to handle no vowels.
-        raise ValueError
+        try:
+            raise ValueError('No vowels with > 0 count.', char, count)
+        except ValueError as e:
+            print(e.args)
 
     return char, count
 
-
+def to_morse_code(string:str)->str:
+    '''
+    convert string to morse code.
+    :param string: string
+    :return: morse code.
+    '''
+    morse = {
+        "A": ".-",
+        "B": "-...",
+        "C": "-.-.",
+        "D": "-..",
+        "E": ".",
+        "F": "..-.",
+        "G": "--.",
+        "H": "....",
+        "I": "..",
+        "J": ".---",
+        "K": "-.-",
+        "L": ".-..",
+        "M": "--",
+        "N": "-.",
+        "O": "---",
+        "P": ".--.",
+        "Q": "--.-",
+        "R": ".-.",
+        "S": "...",
+        "T": "-",
+        "U": "..-",
+        "V": "...-",
+        "W": ".--",
+        "X": "-..-",
+        "Y": "-.--",
+        "Z": "--..",
+        "0": "-----",
+        "1": ".----",
+        "2": "..---",
+        "3": "...--",
+        "4": "....-",
+        "5": ".....",
+        "6": "-....",
+        "7": "--...",
+        "8": "---..",
+        "9": "----.",
+        ".": ".-.-.-",
+        ",": "--..--"
+    }
+    working   = string.upper()
+    working   = working.split()
+    morseList = []
+    for i in working:
+        word = ''
+        for c in i:
+            if c in morse:
+                word += morse[c]
+        morseList.append(word)
+    converted = ' '.join(morseList)
+    return converted
 
 def FUNCTION_TESTS(string:str):
     '''Ensures that functions are working.'''
@@ -202,7 +262,7 @@ def FUNCTION_TESTS(string:str):
     print(most_common_vowel(x))
     print('Least common vowel: ', end='')
     print(least_common_vowel(x))
+    print('To morse code: ', end='')
+    print(to_morse_code(x))
 
 FUNCTION_TESTS('My dumb, && long string that I love to use. **!')
-
-print(least_common_vowel('thl'))
