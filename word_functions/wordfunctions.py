@@ -2,6 +2,7 @@
 Just your everyday functions. Maybe extend out strings.
 '''
 import random
+
 def sanitize(string:str, keepSpaces=True )->str:
     '''
     Cleans a string down to letters.
@@ -231,7 +232,7 @@ def to_morse_code(string:str)->str:
         word = ''
         for c in i:
             if c in morse:
-                word += morse[c]
+                word += (morse[c] + ' ')
         morseList.append(word)
     converted = ' '.join(morseList)
     return converted
