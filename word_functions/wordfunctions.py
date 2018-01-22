@@ -9,10 +9,12 @@ def sanitize(string:str, keepSpaces=True )->str:
     :param keepSpaces: Do we want to keep spaces or not?
     :return: Cleaned string.
     '''
+    #todo: fix spaces, too many spaces in some cases.
     if keepSpaces == True:
         sanitizedString = ''
         l = string.split()
         tmp = ''
+        print(l)
         for i in l:
                 tmp += (i + ' ')
         for i in tmp:
@@ -105,10 +107,23 @@ def remove_vowels(string:str)->str:
     return removed
 
 
-x = 'my string is... really long&&.    x'
-x = sanitize(x)
-x = random_case(x)
-x = to_number_leet(x)
-x = reverse_string(x)
-x = remove_vowels(x)
-print('x is:',x)
+def FUNCTION_TESTS(string:str):
+    '''Ensures that functions are working.'''
+    x = string
+    print('Initial string: ', end='')
+    print(x)
+    print('String sanitized w/ spaces: ', end='')
+    print(sanitize(x))
+    print('String sanitized w/o spaces: ', end='')
+    print(sanitize(x, False))
+    print('Random case: ', end='')
+    print(random_case(x))
+    print('String to simple leet: ', end='')
+    print(to_number_leet(x))
+    print('Reversed string: ', end='')
+    print(reverse_string(x))
+    print('String with no vowels: ', end='')
+    print(remove_vowels(x))
+
+
+FUNCTION_TESTS('My dumb, && long string that I love to use. **!')
