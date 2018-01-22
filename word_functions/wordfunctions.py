@@ -298,4 +298,4 @@ def FUNCTION_TESTS(string:str):
     print('To emoji: ', end='')
     print(to_emoji(x))
 
-FUNCTION_TESTS('This is some messy string that no 1 chars** about! 1st_place_medal')
+FUNCTION_TESTS('This is some messy string that no 1 chars** about! moai')
