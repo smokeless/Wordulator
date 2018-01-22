@@ -47,7 +47,7 @@ def letter_count(string:str)->int:
 def special_char_count(string)->int:
     counter = 0
     for i in string:
-        if not i.isalnum():
+        if not i.isalnum() and i != ' ':
             counter += 1
     return counter
 
