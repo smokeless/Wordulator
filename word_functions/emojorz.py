@@ -1,14 +1,5 @@
 # -*- coding: UTF-8 -*-
 
-
-"""
-Data literal storing emoji names and unicode codes
-"""
-
-
-__all__ = ['EMOJI_UNICODE', 'UNICODE_EMOJI', 'EMOJI_ALIAS_UNICODE', 'UNICODE_EMOJI_ALIAS']
-
-
 EMOJI_UNICODE = {
     u':1st_place_medal:': u'\U0001F947',
     u':2nd_place_medal:': u'\U0001F948',
@@ -3706,7 +3697,3 @@ EMOJI_ALIAS_UNICODE = dict(EMOJI_UNICODE.items(), **{
     u':yin_yang:': u'\U0000262F',
     u':zipper__mouth_face:': u'\U0001F910'
 })
-
-
-UNICODE_EMOJI = {v: k for k, v in EMOJI_UNICODE.items()}
-UNICODE_EMOJI_ALIAS = {v: k for k, v in EMOJI_ALIAS_UNICODE.items()}
