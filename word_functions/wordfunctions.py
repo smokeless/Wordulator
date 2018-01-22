@@ -178,7 +178,6 @@ def least_common_vowel(string:str)->tuple:
 
     return char, count
 
-#todo maybe space by character for legibility.
 def to_morse_code(string:str)->str:
     '''
     convert string to morse code.
@@ -267,4 +266,4 @@ def FUNCTION_TESTS(string:str):
     print('To morse code: ', end='')
     print(to_morse_code(x))
 
-FUNCTION_TESTS('My dumb, && long string that I love to use. **!')
+FUNCTION_TESTS('This is some messy string that no 1 chars** about!')
