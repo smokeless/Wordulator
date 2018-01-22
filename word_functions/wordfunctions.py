@@ -239,7 +239,7 @@ def to_morse_code(string:str)->str:
         morseList.append(word)
     converted = ' '.join(morseList)
     return converted
-
+#todo more stuff here to make this better.
 def to_emoji(string:str)->str:
     '''
     Using emoji module.
