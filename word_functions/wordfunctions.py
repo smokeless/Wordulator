@@ -124,6 +124,7 @@ def remove_vowels(string:str)->str:
             removed += i
     return removed
 
+
 def most_common_vowel(string:str)->tuple:
     '''
     String in, out most common vowel. Includes y.
@@ -144,6 +145,7 @@ def most_common_vowel(string:str)->tuple:
             occ = vowels[k]
             letter = k
     return (letter, occ)
+
 
 def least_common_vowel(string:str)->tuple:
     '''
@@ -177,6 +179,7 @@ def least_common_vowel(string:str)->tuple:
             print(e.args)
 
     return char, count
+
 
 def to_morse_code(string:str)->str:
     '''
@@ -235,6 +238,10 @@ def to_morse_code(string:str)->str:
         morseList.append(word)
     converted = ' '.join(morseList)
     return converted
+
+def to_emoji(string:str)->str:
+    pass
+
 
 def FUNCTION_TESTS(string:str):
     '''Ensures that functions are working.'''
