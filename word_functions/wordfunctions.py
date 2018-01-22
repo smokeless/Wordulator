@@ -247,15 +247,23 @@ def to_emoji(string:str)->str:
     :return: converted string.
     '''
     workingText = string.split()
-    finalText   = []
-    for i in workingText:
-        if workingText in emojorz.EMOJI_UNICODE:
-            finalText.append(emojorz.EMOJI_UNICODE[i])
-        else:
-            finalText.append(i)
 
-    finalText = ' '.join(finalText)
+    #first we need to add : at start and end of each element for emoji dict.
+    translated = []
+    for i in workingText:
+        translated.append((':'+i+':'))
+
+    for i in range(len(translated)):
+        if translated[i] in emojorz.EMOJI_UNICODE:
+            translated[i] = emojorz.EMOJI_UNICODE[translated[i]]
+    #now that we have it in translated, strip out the :'s
+    for i in range(len(translated)):
+        translated[i] = translated[i].strip(':')
+
+    finalText = ' '.join(translated)
     return finalText
+
+
 
 
 def FUNCTION_TESTS(string:str):
@@ -287,5 +295,7 @@ def FUNCTION_TESTS(string:str):
     print(least_common_vowel(x))
     print('To morse code: ', end='')
     print(to_morse_code(x))
+    print('To emoji: ', end='')
+    print(to_emoji(x))
 
-FUNCTION_TESTS('This is some messy string that no 1 chars** about!')
+FUNCTION_TESTS('This is some messy string that no 1 chars** about! 1st_place_medal')
