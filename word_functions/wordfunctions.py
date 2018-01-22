@@ -153,13 +153,27 @@ def least_common_vowel(string:str)->tuple:
     working = sanitize(string, keepSpaces=False)
     working = working.lower()
     vowels  = {'a':0, 'i':0, 'e':0, 'o':0, 'y':0}
-    char = ''
-    count =
+
     for i in working:
         if i in vowels:
             vowels[i] += 1
-    for k in vowels:
-        if vowels[k]
+    char  = ''
+    count = 0
+    for k in vowels: #get a non-zero vowel to compare against.
+        if vowels[k] != 0:
+            char  = k
+            count = vowels[k]
+
+    for k,v in vowels.items():
+        if v < count and v != 0:
+            count  = v
+            char = k
+    if not char: #todo decide how to handle no vowels.
+        raise ValueError
+
+    return char, count
+
+
 
 def FUNCTION_TESTS(string:str):
     '''Ensures that functions are working.'''
@@ -186,5 +200,9 @@ def FUNCTION_TESTS(string:str):
     print(remove_vowels(x))
     print('Most common vowel:', end='')
     print(most_common_vowel(x))
+    print('Least common vowel: ', end='')
+    print(least_common_vowel(x))
 
 FUNCTION_TESTS('My dumb, && long string that I love to use. **!')
+
+print(least_common_vowel('thl'))
