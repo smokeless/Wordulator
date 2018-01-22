@@ -177,6 +177,7 @@ def least_common_vowel(string:str)->tuple:
 
     return char, count
 
+#todo maybe space by character for legibility.
 def to_morse_code(string:str)->str:
     '''
     convert string to morse code.
