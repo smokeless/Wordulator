@@ -9,17 +9,21 @@ def sanitize(string:str, keepSpaces=True )->str:
     :param keepSpaces: Do we want to keep spaces or not?
     :return: Cleaned string.
     '''
-    #todo: fix spaces, too many spaces in some cases.
     if keepSpaces == True:
         sanitizedString = ''
-        l = string.split()
         tmp = ''
-        print(l)
-        for i in l:
+        for i in string.split():
                 tmp += (i + ' ')
+
         for i in tmp:
             if i.isalpha() or i == ' ':
                 sanitizedString += i
+
+        tmp = ''
+        for i in sanitizedString.split():
+            tmp += (i + ' ')
+
+        sanitizedString = tmp
         return sanitizedString
     else:
         l = ''.join(string.split())
@@ -39,7 +43,16 @@ def letter_count(string:str)->int:
     count = sanitize(string, False)
     return len(count)
 
-def total_vowel_count(string:str)->int:
+
+def special_char_count(string)->int:
+    counter = 0
+    for i in string:
+        if not i.isalnum():
+            counter += 1
+    return counter
+
+
+def vowel_count(string:str)->int:
     '''
     Run in a string, this will count up vowels.
     :param string: Some string.
@@ -52,6 +65,7 @@ def total_vowel_count(string:str)->int:
         if i in vowels:
             count += 1
     return count
+
 
 def to_number_leet(string:str)->str:
     '''
@@ -69,6 +83,7 @@ def to_number_leet(string:str)->str:
         else:
             leetString += c
     return leetString
+
 
 def random_case(string)->str:
     '''
@@ -90,6 +105,7 @@ def random_case(string)->str:
             finishedString += i
     return finishedString
 
+
 def reverse_string(string:str)->str:
     '''
     Reverses a string.
@@ -97,6 +113,7 @@ def reverse_string(string:str)->str:
     :return: reversed string.
     '''
     return string[::-1]
+
 
 def remove_vowels(string:str)->str:
     vowels = ['a', 'i', 'e', 'o', 'u', 'y']
@@ -116,6 +133,12 @@ def FUNCTION_TESTS(string:str):
     print(sanitize(x))
     print('String sanitized w/o spaces: ', end='')
     print(sanitize(x, False))
+    print('String Letter Count: ', end='')
+    print(letter_count(x))
+    print('String Special Char Count: ', end='')
+    print(special_char_count(x))
+    print('Vowel Count: ', end='')
+    print(vowel_count(x))
     print('Random case: ', end='')
     print(random_case(x))
     print('String to simple leet: ', end='')
