@@ -123,6 +123,43 @@ def remove_vowels(string:str)->str:
             removed += i
     return removed
 
+def most_common_vowel(string:str)->tuple:
+    '''
+    String in, out most common vowel. Includes y.
+    :param string:
+    :return: tuple, most common vowel/number.
+    '''
+    vowels = {'a':0, 'e':0, 'i':0, 'o':0, 'u':0, 'y':0}
+    working = sanitize(string, False)
+    working = working.lower()
+    for i in working:
+        if i in vowels:
+            vowels[i] += 1
+    occ    = 0
+    letter = ''
+
+    for k in vowels:
+        if vowels[k] > occ:
+            occ = vowels[k]
+            letter = k
+    return (letter, occ)
+
+def least_common_vowel(string:str)->tuple:
+    '''
+    Get the least common vowel and a count.
+    :param string:
+    :return: (vowel, count)
+    '''
+    working = sanitize(string, keepSpaces=False)
+    working = working.lower()
+    vowels  = {'a':0, 'i':0, 'e':0, 'o':0, 'y':0}
+    char = ''
+    count =
+    for i in working:
+        if i in vowels:
+            vowels[i] += 1
+    for k in vowels:
+        if vowels[k]
 
 def FUNCTION_TESTS(string:str):
     '''Ensures that functions are working.'''
@@ -147,6 +184,7 @@ def FUNCTION_TESTS(string:str):
     print(reverse_string(x))
     print('String with no vowels: ', end='')
     print(remove_vowels(x))
-
+    print('Most common vowel:', end='')
+    print(most_common_vowel(x))
 
 FUNCTION_TESTS('My dumb, && long string that I love to use. **!')
