@@ -239,13 +239,15 @@ def to_morse_code(string:str)->str:
         morseList.append(word)
     converted = ' '.join(morseList)
     return converted
-#todo more stuff here to make this better.
+
+
 def to_emoji(string:str)->str:
     '''
-    Using emoji module.
+    converts anything in the emoji list to emoji.
     :param string: string to convert.
     :return: converted string.
     '''
+    
     workingText = string.split()
 
     #first we need to add : at start and end of each element for emoji dict.
