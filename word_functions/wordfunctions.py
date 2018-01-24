@@ -276,12 +276,25 @@ def contains_homonym(string:str)->bool:
     hom = homonyms.homonymDict
     for k, v in hom.items():
         if k in string.split():
-            print(k)
             return True
         if v in string.split():
-            print(v)
             return True
     return False
+
+def get_homonyms(string:str)->list:
+    '''
+    Gets words that are in homonym dict.
+    :param string:
+    :return: list of words from string in homonym dict
+    '''
+    hom = homonyms.homonymDict
+    homos = []
+    for k, v in hom.items():
+        if k in string.split():
+            homos.append(k)
+        if v in string.split():
+            homos.append(v)
+    return homos
 
 def FUNCTION_TESTS(string:str):
     '''Ensures that functions are working.'''
@@ -316,5 +329,7 @@ def FUNCTION_TESTS(string:str):
     print(to_emoji(x))
     print('Contains a homonym: ', end='')
     print(contains_homonym(x))
+    print('Get homonyms: ', end = '')
+    print(get_homonyms(x))
 
 FUNCTION_TESTS('This is some messy string that no 1 chars** about! moai,')
