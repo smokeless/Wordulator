@@ -3,6 +3,7 @@ Just your everyday functions. Maybe extend out strings.
 '''
 import random
 from word_functions import emojorz
+from word_functions import homonyms
 
 def sanitize(string:str, keepSpaces=True )->str:
     '''
@@ -247,7 +248,7 @@ def to_emoji(string:str)->str:
     :param string: string to convert.
     :return: converted string.
     '''
-    
+
     workingText = string.split()
 
     #first we need to add : at start and end of each element for emoji dict.
@@ -265,8 +266,22 @@ def to_emoji(string:str)->str:
     finalText = ' '.join(translated)
     return finalText
 
-
-
+def contains_homonym(string:str)->bool:
+    '''
+    Does this contain a homonym?
+    Homonym list is small at the moment.
+    :param string:
+    :return: True or False
+    '''
+    hom = homonyms.homonymDict
+    for k, v in hom.items():
+        if k in string.split():
+            print(k)
+            return True
+        if v in string.split():
+            print(v)
+            return True
+    return False
 
 def FUNCTION_TESTS(string:str):
     '''Ensures that functions are working.'''
@@ -299,5 +314,7 @@ def FUNCTION_TESTS(string:str):
     print(to_morse_code(x))
     print('To emoji: ', end='')
     print(to_emoji(x))
+    print('Contains a homonym: ', end='')
+    print(contains_homonym(x))
 
-FUNCTION_TESTS('This is some messy string that no 1 chars** about! moai')
+FUNCTION_TESTS('This is some messy string that no 1 chars** about! moai,')
