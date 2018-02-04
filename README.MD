@@ -13,4 +13,6 @@ Current functions:
 * random_case: change letters to random case
 * reverse_string: reverse the string
 * remove_vowels: strip all vowels from string, including y
+* convert words to emojis, because why not?
+* other stuff, lots of stuff.
 
